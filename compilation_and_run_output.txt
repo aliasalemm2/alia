@@ -1,0 +1,19 @@
+$ make all && make run
+gcc -Wall -Wextra -std=c99 creation.c -o creation
+gcc -Wall -Wextra -std=c99 filealia.c file2alia.c -o program
+gcc -Wall -Wextra -std=c99 program.c -o program
+--- Running creation (fork example) ---
+./creation
+This is the parent process. PID: 2735, Child PID: 2736
+This is the child process. PID: 2736, Parent PID: 2735
+--- Running output_program (linker example) ---
+./output_program
+Hello from file1!
+--- Running program (loader example) ---
+./program
+This is a program.
+--- Inspecting program with ldd ---
+ldd ./program
+	linux-vdso.so.1 (0x00007ffc1b7c3000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f5493400000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f549366d000)
